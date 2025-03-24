@@ -1,6 +1,6 @@
-groups = ['HOT', 'Seventeen', 'Black Plink', 'NJZ']
-#ratings = [1, 2, 4, 3, 100]
-ratings = [1, 2, 4, 3]
+city = ['Incheon', 'Incheon', 'Incheon', 'Gimpo', 'Seoul', 'Seoul']
+#city = {'Incheon', 'Incheon', 'Incheon', 'Gimpo', 'Seoul', 'Seoul'} # set 중복안됨.
 
-groups_rating = list(zip(groups, ratings)) # zip 함수
-print(groups_rating)
+city = set(city)
+
+print(city)
