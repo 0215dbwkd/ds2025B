@@ -3,6 +3,7 @@ class Node:
         self.data = data
         self.link = None
 
+
 class Stack:
     def __init__(self):
         self.top = None
@@ -22,9 +23,12 @@ class Stack:
         self.top = self.top.link
         return popped_node.data
 
+
 s1 = Stack()
-print(s1.pop())            # Stack is empty!
-s1.push("Data Structure")
+# print(s1.pop())
+s1.push("Data structure")
 s1.push("Database")
-print(s1.pop())
-print(s1.pop())
+# print(s1.pop())
+# print(s1.pop())
+for i in range(3):
+    print(s1.pop())
