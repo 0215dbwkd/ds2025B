@@ -44,6 +44,28 @@ class LinkedList:
                 current = current.link
         return f"{target}은(는) 링크드리스트 안에 존재하지 않습니다"
 
+    def reverse_list(self):
+        current = self.head
+        previous = None
+        while current:
+            link = current.link
+            current.link = previous
+            previous = current
+            current = link
+        self.head = previous
+
+    def detect_cycle(self):
+        slow = self.head
+        fast = self.head
+        while True:
+            try:
+                slow = slow.link
+                fast = fast.link.link
+                if slow is fast:
+                    return True
+            except:
+                return False
+
 
     def __str__(self):
         node = self.head
@@ -58,6 +80,8 @@ ll = LinkedList()
 ll.append(8)
 ll.append(10)
 ll.append(-9)
+print(ll)
+ll.reverse_list()
 print(ll)
 print(ll.search(100))
 print(ll.search(-9))

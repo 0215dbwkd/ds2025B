@@ -1,16 +1,45 @@
-def check_parentheses(expression : str) -> bool: # type hint
-    stack = []
-    for letter in expression:
-        if letter == "(":
-            stack.append(letter)
-        if letter == ")":
-            if(len(stack) == 0):
-                return False
-            else:
-                stack.pop() #집어 넣은 걸 뺀다
-    return len(stack) == 0
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.link = None
 
-print(check_parentheses("(2+3)"))
-print(check_parentheses("(2+(2*3))"))
-print(check_parentheses("(2+(2*3)")) # 삽입 2번 팝 1번 stack에 여는 소괄호 하나가 남아서 False
-print(check_parentheses(")2+(2*3)("))
+
+class Stack:
+    def __init__(self):
+        self.top = None
+
+    def push(self, data):
+        node = Node(data)
+        if self.top is None:
+            self.top = node
+        else:
+            node.link = self.top
+            self.top = node
+
+    def pop(self):
+        if self.top is None:
+            return "Stack is empty!"
+        popped_node = self.top
+        self.top = self.top.link
+        return popped_node.data
+
+    def reverse_string(a_string):
+        stack = []
+        string = ""
+        for c in a_string:
+            stack.append(c)
+        for c in a_string:
+            string += stack.pop()
+        return string
+
+
+s1 = Stack()
+# print(s1.pop())
+s1.push("Data structure")
+s1.push("Database")
+# print(s1.pop())
+# print(s1.pop())
+for i in range(3):
+    print(s1.pop())
+
+print(Stack.reverse_string("Bieber"))
