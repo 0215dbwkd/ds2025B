@@ -1,3 +1,24 @@
+def post_order(node):  # 재귀함수 사용  자기자신 호출
+    if node is None:
+        return
+    post_order(node.left) # 자기 자신 호출
+    post_order(node.right) # 자기 자신 호출
+    print(node.data, end='-')
+
+def pre_order(node): # 재귀함수 사용  자기자신 호출
+    if node is None:
+        return
+    print(node.data, end='-')
+    pre_order(node.left) # 자기 자신 호출
+    pre_order(node.right) # 자기 자신 호출
+
+def in_order(node): # 재귀함수 사용  자기자신 호출
+    if node is None:
+        return
+    in_order(node.left) # 자기 자신 호출
+    print(node.data, end='-')
+    in_order(node.right) # 자기 자신 호출
+
 class TreeNode:
 	def __init__(self):
 		self.left = None
@@ -29,3 +50,11 @@ node3.left = node6
 
 print(node6.data)
 print(node1.right.left.data)
+
+pre_order(node1) # 전위
+print()
+in_order(node1) # 중위
+print()
+post_order(node1) # 후위
+print()
+
