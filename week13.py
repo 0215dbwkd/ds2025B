@@ -44,6 +44,17 @@ def find_vertex(g, find_vtx) :
 	else :
 		return False
 
+	def dfs(g, current, visited):
+		visited.append(current)
+		for vertex in range(graph_size):
+			if g.graph[current][vertex] > 0 and vertex not in visited:
+				dfs(g, vertex,visited)
+
+	def find_vertex(g, find_vtx) :
+		visited_ary = list()
+		start = 0
+		dfs(g, start, visited_ary)
+		return find_vtx in visited_ary
 
 g1 = None
 name_ary = ['인천', '서울', '강릉', '대전', '광주', '부산']
